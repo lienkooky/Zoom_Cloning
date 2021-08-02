@@ -1,0 +1,30 @@
+{
+  "name": "zoom_cloning",
+  "version": "1.0.0",
+  "description": "🍒21.08.02 월\\_Cloning_Zoom with JS and Node",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geonyeong-Son/Zoom_Cloning.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Geonyeong-Son/Zoom_Cloning/issues"
+  },
+  "homepage": "https://github.com/Geonyeong-Son/Zoom_Cloning#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.14.9",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  }
+}
