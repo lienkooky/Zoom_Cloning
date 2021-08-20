@@ -5,6 +5,7 @@ import express from 'express';
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
+const sockets = [];
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
@@ -14,14 +15,16 @@ app.get('/', (_, res) => res.render('home'));
 app.get('/*', (_, res) => res.redirect('/'));
 
 wss.on('connection', (socket) => {
+  sockets.push(socket);
   console.log('Conneted to Browser ✅');
   socket.on('close', () => {
     console.log('Disconneted from th Browser 🦊');
   });
   socket.on('message', (message) => {
-    console.log(message);
+    sockets.forEach((aSocket) => {
+      aSocket.send(message);
+    });
   });
-  socket.send('hello!!!');
 });
 
 const handelListen = () => console.log(`Listening on http://localhost:3000`);
