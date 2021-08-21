@@ -1,5 +1,48 @@
 const socket = io();
 
+const myFace = document.getElementById('myFace');
+const muteBtn = document.getElementById('mute');
+const cameraBtn = document.getElementById('camera');
+let myStream;
+let muted = false;
+let cameraOff = false;
+
+async function getMedia() {
+  try {
+    myStream = await navigator.mediaDevices.getUserMedia({
+      audio: true,
+      video: true,
+    });
+    myFace.srcObject = myStream;
+  } catch (err) {
+    console.log(err);
+  }
+}
+getMedia();
+
+function handleMuteClick() {
+  myStream.getAudioTracks();
+  if (!muted) {
+    muteBtn.innerText = 'Unmute';
+    muted = true;
+  } else {
+    muteBtn.innerText = 'Mute';
+    muted = false;
+  }
+}
+function handleCameraClick() {
+  if (cameraOff) {
+    cameraBtn.innerText = 'Turn Camera Off';
+    cameraOff = flase;
+  } else {
+    cameraBtn.innerText = 'Turn Camara On';
+    cameraOff = true;
+  }
+}
+
+muteBtn.addEventListener('click', handleMuteClick);
+cameraBtn.addEventListener('click', handleCameraClick);
+
 /* ---------- socket.io를 이용해 메세지 보내는 방법 -------------------- */
 
 /*
