@@ -1,5 +1,8 @@
 const socket = io();
 
+/* ---------- socket.io를 이용해 메세지 보내는 방법 -------------------- */
+
+/*
 const welcome = document.getElementById('welcome');
 const form = welcome.querySelector('form');
 const room = document.getElementById('room');
@@ -74,7 +77,9 @@ socket.on('room_change', (rooms) => {
     roomList.appendChild(li);
   });
 });
-/* ----------------------------------------------------- */
+*/
+
+/* ------------ 일반 메세지 보내는 방법 ------------------------------------ */
 
 /*
 const messageList = document.querySelector('ul');
