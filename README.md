@@ -19,3 +19,16 @@
 > how to work?
 
 - i used pug and i didn't write class, like this (#message, #nick)
+
+### 21.08.21
+
+<br/>
+
+> what happen this err?
+
+- crbug/1173575, non-JS module files deprecated.
+
+> how to work?
+
+- stackoverflow said, change my url 3000 -> 8000, but didn't working😢
+- found err, becuze i didn't write "})"
