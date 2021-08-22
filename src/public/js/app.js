@@ -146,6 +146,7 @@ socket.on('ice', (ice) => {
 function makeConnection() {
   myPeerConnection = new RTCPeerConnection();
   myPeerConnection.addEventListener('icecandidate', handleIce);
+  myPeerConnection.addEventListener('addstream', handleAddStream);
   myStream
     .getTracks()
     .forEach((track) => myPeerConnection.addTrack(track, myStream));
@@ -154,6 +155,12 @@ function makeConnection() {
 function handleIce(data) {
   console.log(`sent the candidate`);
   socket.emit('ice', data.candidate, roomName);
+}
+
+function handleAddStream(data) {
+  const peerFace = document.getElementById('peerFace');
+  peerFace.srcObject = data.stream;
+  console.log("Peer's Stream", data.stream);
 }
 
 /* ---------- socket.io를 이용해 메세지 보내는 방법 -------------------- */
